@@ -76,10 +76,10 @@ Before bringing your project live, you might want to make your app faster by dis
 
 [Jeff Cross & Brian Ford](https://www.youtube.com/watch?v=ojMy6m_fcxc&list=UUEGUP3TJJfMsEM_1y8iviSQ) annonce that the improvements are:
 
-|| time (ms) | garbage (kb) |
-|----------------------------|
-| DOM manipulation | 44% faster | 73% less |
-| Digest | 28% faster | na |
+|| time (ms) | garbage (kb)
+---------------------------
+DOM manipulation | 44% faster | 73% less
+Digest | 28% faster | na
   
 To do this, go to the `app.js` file and in `app.config()` change `$compileProvider.debugInfoEnabled(true);` to `$compileProvider.debugInfoEnabled(false);`
 
