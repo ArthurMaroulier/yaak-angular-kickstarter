@@ -1,0 +1,112 @@
+{
+  "name": "yaak-angular-kickstarter",
+  "description": "Angular app kickstarter using bower and gulp",
+  "version": "0.1.0",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "app/public/bower_components"
+  ],
+  "keywords": [
+    "angular",
+    "angularjs",
+    "kickstarter",
+    "boilerplate",
+    "skeleton"
+  ],
+  "authors": [
+    {
+      "name": "Arthur Maroulier",
+      "email": "arthur.maroulier@gmail.com"
+    }
+  ],
+  "homepage": "https://github.com/ArthurMaroulier/yaak-angular-kickstarter",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ArthurMaroulier/yaak-angular-kickstarter.git"
+  },
+  "private": false,
+  "dependencies": {
+    "jquery": "2.1.1",
+    "angular": "1.3.0",
+    "angular-route": "1.3.0",
+    "angular-resource": "1.3.0",
+    "angular-animate": "1.3.0",
+    "angular-cookies": "1.3.0",
+    "angular-i18n" : "1.3.0",
+    "angular-bootstrap": "0.11.2",
+    "angular-fontawesome": "4bc9e2e5a2",
+    "angular-momentjs": "0.1.8",
+    "angular-loading-bar": "0.6.0",
+    "angular-logex": "0.0.9",
+    "restangular": "1.4.0",
+    "bootstrap": "3.2.0",
+    "moment": "2.8.3",
+    "lodash": "2.4.1",
+    "angular-adaptive-detection": "latest"
+  },
+  "overrides": {
+    "angular": {
+      "main": "angular.js"
+    },
+    "jquery": {
+      "main": "dist/jquery.js"
+    },
+    "angular-route": {
+      "main": "angular-route.js"
+    },
+    "angular-resource": {
+      "main": "angular-resource.js"
+    },
+    "angular-animate": {
+      "main": "angular-animate.js"
+    },
+    "angular-cookies": {
+      "main": "angular-cookies.js"
+    },
+    "angular-bootstrap": {
+      "main": [
+        "ui-bootstrap-tpls.js",
+        "ui-bootstrap.js"
+      ]
+    },
+    "angular-fontawesome": {
+      "main": "dist/angular-fontawesome.js"
+    },
+    "font-awesome": {
+      "main": "css/font-awesome.css"
+    },
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/css/bootstrap-theme.css",
+        "dist/js/bootstrap.js"
+      ]
+    },
+    "moment": {
+      "main": "min/moment-with-locales.js"
+    },
+    "angular-momentjs": {
+      "main": "angular-momentjs.js"
+    },
+    "lodash": {
+      "main": "dist/lodash.js"
+    },
+    "restangular": {
+      "main": "dist/restangular.js"
+    },
+    "angular-loading-bar": {
+      "main": [
+        "build/loading-bar.js",
+        "build/loading-bar.css"
+      ]
+    },
+    "angular-logex": {
+      "main": "dist/log-ex-unobtrusive.js"
+    }
+  },
+  "resolutions": {
+    "angular": "1.3.0"
+  }
+}

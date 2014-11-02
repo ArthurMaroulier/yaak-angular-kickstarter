@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta ng-if="isiOS" name="apple-mobile-web-app-capable" content="yes">
+        <meta ng-if="isiOS" name="apple-mobile-web-app-title" content="YAAK">
+        <meta ng-if="isiOS" name='apple-touch-fullscreen' content='yes'>
+        <meta ng-if="isiOS" name='format-detection' content='telephone=no'>
+        <meta ng-if="isiOS" name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta ng-if="isiOS" name="viewport" content="width=device-width, minimal-ui, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta ng-if="!isiOS" name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="description" content="">
+        <meta name="author" content="Arthur Maroulier">
+        <link rel="icon" href="favicon.ico">
+        <title>Angular kickstarter (YAAK)</title>
+
+        <!-- styles -->
+        <!-- build:css ./css/vendor.min.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css ./css/app.min.css -->
+        <!-- inject:css -->
+        <!-- endinject -->
+        <!-- endbuild -->
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        <base href="/">
+    </head>
+    <body ng-controller="appController" ng-cloak>
+        <div class="container">
+            <div class="page-header">
+                <h1>{{title}} <small>{{subtitle}}</small></h1>
+            </div>
+            <p class="lead">Including</p>
+            <ul class="lead">
+                <li ng-repeat="component in components">{{component}}</li>
+            </ul>
+            <div class="well">If it's working, you must see a list just above, few words below and a font awesome icon right here <i class="fa fa-angellist fa-2x"></i></div>
+            <div class="well">Open your browser console to see the great log-Ex log exemples.</div>
+            <a href="/test">> Load partial.html partial</a>
+            <!-- views -->
+            <div ng-view></div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <p class="text-muted">Made easier with <3 by <a href="https://twitter.com/ArthurMaroulier">@ArthurMaroulier</a> 2014</p>
+            </div>
+        </div>
+
+        <!-- scripts -->
+        <!-- build:js ./js/vendor.min.js -->
+        <!-- bower:js -->
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:js ./js/app.min.js -->
+        <!-- inject:js -->
+        <!-- endinject -->
+        <!-- endbuild -->
+        <!-- build:js ./js/templates.min.js -->
+        <!-- inject:partials -->
+        <!-- endinject -->
+        <!-- endbuild -->
+    </body>
+</html>

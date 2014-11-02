@@ -1,0 +1,8 @@
+node_modules
+app/public/bower_components/*
+app/public/fonts
+.tmp
+*.sublime-project
+*.sublime-workspace
+npm-debug.log
+.DS_Store

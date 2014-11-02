@@ -1,0 +1,7 @@
+{
+    "directory": "app/public/bower_components",
+    "analytics": false,
+    "scripts": {
+        "postinstall": "node_modules/gulp/bin/gulp.js init"
+    }
+}
