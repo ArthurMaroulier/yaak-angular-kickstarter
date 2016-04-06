@@ -23,7 +23,6 @@ Feel free to use it limitless, contribute to enhance it, watch it, to star it an
 
 - AngularJS
 - jQuery
-- restangular
 - angular-bootstrap
 - angular-fontawesome
 - bootstrap
@@ -163,7 +162,7 @@ Made easier with <3 by [@ArthurMaroulier](https://twitter.com/ArthurMaroulier)
 
 The MIT License (MIT)
 
-Copyright (c) 2014 Arthur Maroulier
+Copyright (c) 2016 Arthur Maroulier
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

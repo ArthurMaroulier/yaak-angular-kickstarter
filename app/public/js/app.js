@@ -29,8 +29,7 @@ var app = angular.module('app', [
     'ngAnimate',
     'log.ex.uo',
     'picardy.fontawesome',
-    'ui.bootstrap',
-    'adaptive.detection'
+    'ui.bootstrap'
 ]);
 
 app.config(['$routeProvider', '$locationProvider', '$compileProvider', 'logExProvider', function ($routeProvider, $locationProvider, $compileProvider, logExProvider) {
@@ -65,8 +64,7 @@ app.config(['$routeProvider', '$locationProvider', '$compileProvider', 'logExPro
 }]);
 
 // Application controller
-app.controller('appController', ['$scope', '$log', '$detection', function appController ($scope, $log, $detection) {
-    $scope.isiOS = $detection.isiOS();
+app.controller('appController', ['$scope', '$log', function appController ($scope, $log) {
     $scope.title = 'YAAK - Angular kickstarter';
     $scope.subtitle = '(yet another)';
     $scope.components = [
@@ -74,7 +72,6 @@ app.controller('appController', ['$scope', '$log', '$detection', function appCon
         'angular-bootstrap',
         'angular-fontawesome',
         'bootstrap',
-        'restangular',
         '...'
     ];
 

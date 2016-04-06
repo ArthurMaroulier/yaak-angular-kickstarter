@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
 
     autoprefixer = require('gulp-autoprefixer'), // CSS
-    minifycss = require('gulp-minify-css'),
+    minifycss = require('gulp-clean-css'),
     rename = require('gulp-rename'),
 
     jshint = require('gulp-jshint'), // JS
@@ -16,7 +16,7 @@ var gulp = require('gulp'),
 
     ngAnnotate = require('gulp-ng-annotate'), // For angular stuff
     htmlify = require('gulp-angular-htmlify'),
-    minifyHtml = require('gulp-minify-html'),
+    minifyHtml = require('gulp-htmlmin'),
     angularTemplates = require('gulp-angular-templates'),
 
     gulpif = require('gulp-if'), // Filters
@@ -57,6 +57,7 @@ var gulp = require('gulp'),
 
     // Error function handler
     errorHandler = function(error) {
+        console.log(error);
         this.emit('end');
     };
 
@@ -101,7 +102,7 @@ gulp.task('build', ['bower-files', 'fonts-dist', 'process-files', 'other-dist'],
     .pipe(ngAnnotate())
     .pipe(uglify())
     .pipe(concat('app.min.js'))
-    .pipe(gulp.dest(paths.build.js))
+    .pipe(gulp.dest(paths.build.js));
 });
 
 // Inject bower components dependencies (js and css), app js and css and html js templates intp index.html
@@ -132,12 +133,8 @@ gulp.task('bower', ['templates', 'styles'], function () {
 
 // Generate js templates of html partials files
 gulp.task('templates', ['empty-tmp-partials'], function (cb) {
-  return gulp.src(paths.dev.partials + "/**/*.html")
-    .pipe(minifyHtml({
-        empty: true,
-        spare: true,
-        quotes: true
-    }))
+  return gulp.src(paths.dev.partials + '/**/*.html')
+    .pipe(minifyHtml({}))
     .pipe(angularTemplates({
         module: 'app',
         basePath: './partials/'
@@ -189,28 +186,24 @@ gulp.task('other-dist', ['empty-dist'], function () {
 });
 
 // Copy html files into build directory, apply html5 data prefix to angular, minify css and inject assets
-gulp.task('process-files', ['empty-dist'], function () {
-    var assets = useref.assets();
-
+gulp.task('process-files', ['empty-dist', 'bower-files'], function () {
     return gulp.src('./app/public/index.html')
-    .pipe(assets)
     .pipe(htmlify())
+    .pipe(useref())
     .pipe(gulpif('*.css', minifycss()))
     .pipe(gulpif('*.js', uglify()))
-    .pipe(assets.restore())
-    .pipe(useref())
     .pipe(gulp.dest('dist/public'));
 });
 
 // Delete folders tasks
-gulp.task('empty-dist', function(cb) {
-    del([paths.build.main], cb);
+gulp.task('empty-dist', function() {
+    del.sync([paths.build.main]);
 });
 
-gulp.task('empty-tmp-partials', function(cb) {
-    del([paths.dev.dev + '/partials/**'], cb);
+gulp.task('empty-tmp-partials', function() {
+    del.sync([paths.dev.dev + '/partials/**', '!' + paths.dev.dev + '/partials']);
 });
 
-gulp.task('empty-tmp-css', function(cb) {
-    del([paths.dev.dev + '/css/**'], cb);
+gulp.task('empty-tmp-css', function() {
+    del.sync([paths.dev.dev + '/css/**', '!' + paths.dev.dev + '/css']);
 });

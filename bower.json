@@ -1,7 +1,7 @@
 {
   "name": "yaak-angular-kickstarter",
   "description": "Angular app kickstarter using bower and gulp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -28,23 +28,18 @@
   },
   "private": false,
   "dependencies": {
-    "jquery": "2.1.1",
-    "angular": "1.3.0",
-    "angular-route": "1.3.0",
-    "angular-resource": "1.3.0",
-    "angular-animate": "1.3.0",
-    "angular-cookies": "1.3.0",
-    "angular-i18n" : "1.3.0",
-    "angular-bootstrap": "0.11.2",
-    "angular-fontawesome": "4bc9e2e5a2",
-    "angular-momentjs": "0.1.8",
-    "angular-loading-bar": "0.6.0",
-    "angular-logex": "0.0.9",
-    "restangular": "1.4.0",
-    "bootstrap": "3.2.0",
-    "moment": "2.8.3",
-    "lodash": "2.4.1",
-    "angular-adaptive-detection": "latest"
+    "angular": "^1.5.3",
+    "angular-animate": "^1.5.3",
+    "angular-bootstrap": "^1.3.1",
+    "angular-cookies": "^1.5.3",
+    "angular-fontawesome": "^1.0.0",
+    "angular-loading-bar": "^0.9.0",
+    "angular-logex": "^0.0.11",
+    "angular-momentjs": "^0.2.2",
+    "angular-route": "^1.5.3",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.3",
+    "lodash": "^4.8.2"
   },
   "overrides": {
     "angular": {
@@ -55,9 +50,6 @@
     },
     "angular-route": {
       "main": "angular-route.js"
-    },
-    "angular-resource": {
-      "main": "angular-resource.js"
     },
     "angular-animate": {
       "main": "angular-animate.js"
@@ -93,9 +85,6 @@
     "lodash": {
       "main": "dist/lodash.js"
     },
-    "restangular": {
-      "main": "dist/restangular.js"
-    },
     "angular-loading-bar": {
       "main": [
         "build/loading-bar.js",
@@ -105,8 +94,5 @@
     "angular-logex": {
       "main": "dist/log-ex-unobtrusive.js"
     }
-  },
-  "resolutions": {
-    "angular": "1.3.0"
   }
 }
