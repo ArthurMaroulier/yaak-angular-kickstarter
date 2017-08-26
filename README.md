@@ -110,7 +110,7 @@ Before bringing your project live, you might want to make your app faster by dis
   
 To do this, go to the `app.constant.js` and change the debug constant to `false`
 
-####Dependencies injection explanations
+#### Dependencies injection explanations
 _These explanations are based on js injection in the index.html file (it's the same thing for css files)._  
 
 `wiredep` and `gulp-inject` uses html comments blocks to inject in place the dependencies files in the index.html file.
