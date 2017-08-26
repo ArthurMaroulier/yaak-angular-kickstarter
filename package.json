@@ -3,18 +3,29 @@
     "version": "0.2.0",
     "description": "Angular app kickstarter using bower and gulp",
     "keywords": [
-        "angular", "angularjs", "kickstarter", "boilerplate", "skeleton"
+        "angular",
+        "angularjs",
+        "kickstarter",
+        "boilerplate",
+        "skeleton"
     ],
     "homepage": "https://github.com/ArthurMaroulier/yaak-angular-kickstarter",
     "license": "MIT",
     "author": [
-        { "name": "Arthur Maroulier", "email": "arthur.maroulier@gmail.com"}
+        {
+            "name": "Arthur Maroulier",
+            "email": "arthur.maroulier@gmail.com"
+        }
     ],
     "repository": {
         "type": "git",
         "url": "git://github.com/ArthurMaroulier/yaak-angular-kickstarter.git"
     },
-    "private": false,
+    "scripts": {
+        "start": "node_modules/.bin/gulp",
+        "postinstall": "node_modules/.bin/bower install"
+    },
+    "private": true,
     "dependencies": {
         "bower": "^1.7.9",
         "connect-livereload": "^0.5.4",
@@ -32,6 +43,7 @@
         "gulp-jshint": "^2.0.0",
         "gulp-livereload": "^3.8.1",
         "gulp-ng-annotate": "^2.0.0",
+        "gulp-order": "^1.1.1",
         "gulp-rename": "^1.2.2",
         "gulp-uglify": "^1.5.3",
         "gulp-useref": "^3.0.8",
@@ -42,5 +54,8 @@
         "main-bower-files": "^2.11.1",
         "ng-annotate": "^1.2.1",
         "wiredep": "^4.0.0"
+    },
+    "devDependencies": {
+        "gulp-angular-templatecache": "^2.0.0"
     }
 }

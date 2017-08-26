@@ -28,18 +28,18 @@
   },
   "private": false,
   "dependencies": {
-    "angular": "^1.5.3",
-    "angular-animate": "^1.5.3",
-    "angular-bootstrap": "^1.3.1",
-    "angular-cookies": "^1.5.3",
-    "angular-fontawesome": "^1.0.0",
+    "angular": "^1.6.6",
+    "angular-animate": "^1.6.6",
+    "angular-cookies": "^1.6.6",
     "angular-loading-bar": "^0.9.0",
     "angular-logex": "^0.0.11",
     "angular-momentjs": "^0.2.2",
-    "angular-route": "^1.5.3",
     "bootstrap": "^3.3.6",
     "jquery": "^2.2.3",
-    "lodash": "^4.8.2"
+    "lodash": "^4.8.2",
+    "angular-ui-router": "^1.0.6",
+    "angular-messages": "^1.6.6",
+    "font-awesome": "^4.7.0"
   },
   "overrides": {
     "angular": {
@@ -48,23 +48,11 @@
     "jquery": {
       "main": "dist/jquery.js"
     },
-    "angular-route": {
-      "main": "angular-route.js"
-    },
     "angular-animate": {
       "main": "angular-animate.js"
     },
     "angular-cookies": {
       "main": "angular-cookies.js"
-    },
-    "angular-bootstrap": {
-      "main": [
-        "ui-bootstrap-tpls.js",
-        "ui-bootstrap.js"
-      ]
-    },
-    "angular-fontawesome": {
-      "main": "dist/angular-fontawesome.js"
     },
     "font-awesome": {
       "main": "css/font-awesome.css"

@@ -17,11 +17,11 @@ var gulp = require('gulp'),
     ngAnnotate = require('gulp-ng-annotate'), // For angular stuff
     htmlify = require('gulp-angular-htmlify'),
     minifyHtml = require('gulp-htmlmin'),
-    angularTemplates = require('gulp-angular-templates'),
+    templateCache = require('gulp-angular-templatecache'),
 
     gulpif = require('gulp-if'), // Filters
     gulpFilter = require('gulp-filter'),
-    jsFilter = gulpFilter('*.js'),
+    jsFilter = gulpFilter(['*.module.js', '*.js']),
     cssFilter = gulpFilter('*.css'),
 
     useref = require('gulp-useref'), // To inject dependencies automatically
@@ -29,15 +29,18 @@ var gulp = require('gulp'),
     wiredep = require('wiredep').stream, // To get js and css bower dependencies into index.html
     inject = require('gulp-inject'), // To inject custom js and css into index.html
 
+    order = require("gulp-order"),
+
+
     paths = {
         dev: {
             public: 'app/public/',
             css:   'app/public/css/*.css',
             html:  'app/public/**/*.html',
-            js:    'app/public/js/**/*.js',
+            js:    ['app/public/js/**/*.module.js', 'app/public/js/**/*.js'],
             fonts: 'app/public/fonts',
             bower: 'app/public/bower_components',
-            partials: 'app/public/partials',
+            partials: 'app/public/js',
             dev: 'app/public/.tmp'
         },
         build: {
@@ -92,24 +95,24 @@ gulp.task('default', ['watch', 'webserver'], function () {});
 // Watch for changes in html, js and css fiels
 gulp.task('watch', ['templates', 'styles', 'bower', 'fonts'], function() {
     gulp.watch(paths.dev.html, ['templates', 'bower']).on('change', logWatch);
-    gulp.watch(paths.dev.js).on('change', logWatch);
+    gulp.watch(paths.dev.js, ['bower']).on('change', logWatch);
     gulp.watch(paths.dev.css, ['styles']).on('change', logWatch);
 });
 
 // Build the project for production
 gulp.task('build', ['bower-files', 'fonts-dist', 'process-files', 'other-dist'], function() {
-    return gulp.src([paths.dev.js, '!' + paths.dev.bower + '/**'])
+    return gulp.src(paths.dev.js.concat([ '!' + paths.dev.bower + '/**']))
     .pipe(ngAnnotate())
     .pipe(uglify())
     .pipe(concat('app.min.js'))
     .pipe(gulp.dest(paths.build.js));
 });
 
-// Inject bower components dependencies (js and css), app js and css and html js templates intp index.html
+// Inject bower components dependencies (js and css), app js and css and html js templates into index.html
 gulp.task('bower', ['templates', 'styles'], function () {
     gulp.src('app/public/index.html')
     .pipe(wiredep({}))
-    .pipe(inject(gulp.src([paths.dev.js], { read: false }), {
+    .pipe(inject(gulp.src(paths.dev.js, { read: false }), {
         addRootSlash: false,
         transform: function(filePath, file, i, length) {
             return '<script src="' + filePath.replace('app/public/', '') + '"></script>';
@@ -135,9 +138,11 @@ gulp.task('bower', ['templates', 'styles'], function () {
 gulp.task('templates', ['empty-tmp-partials'], function (cb) {
   return gulp.src(paths.dev.partials + '/**/*.html')
     .pipe(minifyHtml({}))
-    .pipe(angularTemplates({
+    .pipe(templateCache({
         module: 'app',
-        basePath: './partials/'
+        transformUrl: function(url) {
+            return url.replace(/^js\//, '')
+        }
     }))
     .pipe(gulp.dest(paths.dev.dev + '/partials'), cb);
 });
@@ -158,7 +163,7 @@ gulp.task('styles', function(cb) {
 
 // Jshint not used, but can be run as standalone task
 gulp.task('jshint', function() {
-    return gulp.src([paths.dev.js, '!' + paths.dev.bower + '/**'])
+    return gulp.src(paths.dev.js.concat(['!' + paths.dev.bower + '/**']))
     .pipe(jshint()).on('error', errorHandler)
     .pipe(jshint.reporter('jshint-stylish'))
     .pipe(jshint.reporter('fail'));
