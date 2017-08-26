@@ -1,6 +1,6 @@
 {
   "name": "yaak-angular-kickstarter",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Angular app kickstarter using bower and gulp",
   "keywords": [
     "angular",
@@ -15,6 +15,10 @@
     {
       "name": "Arthur Maroulier",
       "email": "arthur.maroulier@gmail.com"
+    },
+    {
+      "name": "Arnaud LAHAXE",
+      "email": "arnaud@lahaxe.fr"
     }
   ],
   "repository": {
