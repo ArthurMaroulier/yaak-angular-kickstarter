@@ -23,13 +23,7 @@ So here it is, I made mine as I want it to be.
 A simple Angular kickstarter skeleton that rely on gulp automation to automagically inject js and css bower dependencies and your custom code files into the project main file. It comes with a build process and a light web server for development.  
 The build process generates angular templates from your html files and prepare your angular code for minification and then minify and concatenate all your code and reinject it in the project main file.
 
-I have not included tests because:
-
-> **Test is to doubt :)**  
-
-I didn't need tests for my little project...
-
-Please if you see something wrong or bad, tell me.  
+Please if you see something wrong or bad, tell me.
 Feel free to use it limitless, contribute to enhance it, watch it, to star it and to fork it, enjoy :)
 
 
