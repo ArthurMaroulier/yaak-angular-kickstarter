@@ -1,6 +1,19 @@
 YAAK - Angular kickstarter
 ==========================
 
+##TL;DR
+
+DEV:
+
+1- `npm install`
+2- `npm run start`
+3- Code your app
+
+PROD
+1- `npm install`
+2- `npm run build`
+3- Serve the content of dist/public with your server
+
 ##Simple AngularJS skeleton
 
 Yet another AngularJS kickstarter, seed, bootstrap, boilerplate, stub, skeleton or whatever you want to name it. Why?  
@@ -14,16 +27,19 @@ I have not included tests because:
 
 > **Test is to doubt :)**  
 
-neither images folder as I didn't need tests nor images for my little project...
+I didn't need tests for my little project...
 
 Please if you see something wrong or bad, tell me.  
 Feel free to use it limitless, contribute to enhance it, watch it, to star it and to fork it, enjoy :)
+
+
+Images must be add in the app/public/images folder.
 
 ####Including
 
 - AngularJS
 - jQuery
-- angular-bootstrap
+- bootstrap
 - angular-fontawesome
 - bootstrap
 - moment
@@ -97,7 +113,7 @@ Before bringing your project live, you might want to make your app faster by dis
     </tbody>
 </table>
   
-To do this, go to the `app.js` file and in `app.config()` change `$compileProvider.debugInfoEnabled(true);` to `$compileProvider.debugInfoEnabled(false);`
+To do this, go to the `app.module.js` file and in `app.config()` change `$compileProvider.debugInfoEnabled(true);` to `$compileProvider.debugInfoEnabled(false);`
 
 ####Dependencies injection explanations
 _These explanations are based on js injection in the index.html file (it's the same thing for css files)._  

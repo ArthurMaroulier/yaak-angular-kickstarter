@@ -38,6 +38,7 @@ var gulp = require('gulp'),
             css:   'app/public/css/*.css',
             html:  'app/public/**/*.html',
             js:    ['app/public/js/**/*.module.js', 'app/public/js/**/*.js'],
+            images: 'app/public/images/**',
             fonts: 'app/public/fonts',
             bower: 'app/public/bower_components',
             partials: 'app/public/js',
@@ -47,7 +48,8 @@ var gulp = require('gulp'),
             public: 'dist/public/',
             main: 'dist/',
             js:   'dist/public/js',
-            fonts:'dist/public/fonts'
+            fonts:'dist/public/fonts',
+            images: 'dist/public/images'
         },
         app: '/app'
     },
@@ -100,7 +102,7 @@ gulp.task('watch', ['templates', 'styles', 'bower', 'fonts'], function() {
 });
 
 // Build the project for production
-gulp.task('build', ['bower-files', 'fonts-dist', 'process-files', 'other-dist'], function() {
+gulp.task('build', ['bower-files', 'fonts-dist', 'process-files', 'other-dist', 'images-dist'], function() {
     return gulp.src(paths.dev.js.concat([ '!' + paths.dev.bower + '/**']))
     .pipe(ngAnnotate())
     .pipe(uglify())
@@ -151,6 +153,12 @@ gulp.task('templates', ['empty-tmp-partials'], function (cb) {
 gulp.task('fonts', function() { 
     return gulp.src([paths.dev.bower + '/font-awesome/fonts/**.*', paths.dev.bower + '/bootstrap/dist/fonts/**.*']) 
         .pipe(gulp.dest(paths.dev.fonts)); 
+});
+
+// Copy images files to build folder
+gulp.task('images-dist', function() {
+    return gulp.src(paths.dev.images)
+        .pipe(gulp.dest(paths.build.images));
 });
 
 // Auto-prefix css and outup it into .tmp directory for dev

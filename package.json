@@ -23,6 +23,7 @@
     },
     "scripts": {
         "start": "node_modules/.bin/gulp",
+        "build": "node_modules/.bin/gulp build",
         "postinstall": "node_modules/.bin/bower install"
     },
     "private": true,
