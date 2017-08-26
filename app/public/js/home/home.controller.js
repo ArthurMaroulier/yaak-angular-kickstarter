@@ -1,6 +1,4 @@
-/**
- * Created by arnaud on 25/08/2017.
- */
+'use strict';
 
 angular.module('home')
     .controller('homeController', ['$scope', '$log', function appController ($scope, $log) {
@@ -9,8 +7,9 @@ angular.module('home')
         $scope.subtitle = '(yet another)';
         $scope.components = [
             'angularJS ' + angular.version.full,
-            'fontawesome',
-            'bootstrap'
+            'font awesome',
+            'bootstrap',
+            '...'
         ];
 
         // Log-ex tests

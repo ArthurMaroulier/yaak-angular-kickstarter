@@ -30,8 +30,6 @@ var gulp = require('gulp'),
     inject = require('gulp-inject'), // To inject custom js and css into index.html
 
     order = require("gulp-order"), // sort files for injection (used to inject .module in first)
-    imageop = require('gulp-image-optimization'), // compress images for the production build
-
 
     paths = {
         dev: {
@@ -57,8 +55,9 @@ var gulp = require('gulp'),
 
     // Function for watch task to trigger live reload on change
     logWatch = function(event) {
-        livereload.changed();
         console.log('File ' + event.path.substring(event.path.indexOf(paths.app)) + ' was ' + event.type);
+
+        livereload.changed();
     },
 
     // Error function handler
@@ -95,10 +94,18 @@ gulp.task('init', ['templates', 'styles', 'bower', 'fonts'], function () {});
 // Default task
 gulp.task('default', ['watch', 'webserver'], function () {});
 
-// Watch for changes in html, js and css fiels
+// Watch for changes in html, js and css files
 gulp.task('watch', ['templates', 'styles', 'bower', 'fonts'], function() {
-    gulp.watch(paths.dev.html, ['templates', 'bower']).on('change', logWatch);
-    gulp.watch(paths.dev.js, ['bower']).on('change', logWatch);
+    gulp.watch(paths.dev.html, ['templates', 'bower']);
+    gulp.watch(paths.dev.js, function (event) {
+        // new files must be injected in html
+        if (event.type === 'added' || event.type === 'deleted') {
+            gulp.start('bower');
+        } else {
+            // already existing files just need to trigger live reload
+            logWatch(event);
+        }
+    });
     gulp.watch(paths.dev.css, ['styles']).on('change', logWatch);
 });
 
@@ -159,11 +166,6 @@ gulp.task('fonts', function() { 
 // Copy images files to build folder
 gulp.task('images-dist', function() {
     return gulp.src(paths.dev.images)
-        .pipe(imageop({
-            optimizationLevel: 5,
-            progressive: true,
-            interlaced: true
-        }))
         .pipe(gulp.dest(paths.build.images));
 });
 

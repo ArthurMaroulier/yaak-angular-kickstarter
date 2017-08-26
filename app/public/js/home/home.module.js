@@ -1,5 +1,3 @@
-/**
- * Created by arnaud on 25/08/2017.
- */
+'use strict';
 
 angular.module('home', []);

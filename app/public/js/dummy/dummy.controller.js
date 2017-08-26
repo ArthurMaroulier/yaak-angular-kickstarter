@@ -1,9 +1,7 @@
-/**
- * Created by arnaud on 25/08/2017.
- */
+'use strict';
 
 angular.module('dummy')
-    .controller('dummyController', ['$scope', '$http', function ($scope, $http) {
+    .controller('dummyController', function ($scope, $http) {
 
         $scope.test = 'If you can see this, Angular is working or not!';
 
@@ -19,7 +17,7 @@ angular.module('dummy')
                 $scope.error = true;
             });
 
-
+        // you can see this post in console
         $http.post('https://jsonplaceholder.typicode.com/users', {
                 a: 1
             })
@@ -30,6 +28,7 @@ angular.module('dummy')
                 // show logs in you console
             });
 
+        // you can see this error in console
         $http.get('http://httpstat.us/500')
             .then (function (response) {
                 // never go here
@@ -37,4 +36,4 @@ angular.module('dummy')
             .catch (function (error) {
                 // always go here
             });
-    }]);
+    });
