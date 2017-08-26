@@ -29,7 +29,8 @@ var gulp = require('gulp'),
     wiredep = require('wiredep').stream, // To get js and css bower dependencies into index.html
     inject = require('gulp-inject'), // To inject custom js and css into index.html
 
-    order = require("gulp-order"),
+    order = require("gulp-order"), // sort files for injection (used to inject .module in first)
+    imageop = require('gulp-image-optimization'), // compress images for the production build
 
 
     paths = {
@@ -158,6 +159,11 @@ gulp.task('fonts', function() { 
 // Copy images files to build folder
 gulp.task('images-dist', function() {
     return gulp.src(paths.dev.images)
+        .pipe(imageop({
+            optimizationLevel: 5,
+            progressive: true,
+            interlaced: true
+        }))
         .pipe(gulp.dest(paths.build.images));
 });
 

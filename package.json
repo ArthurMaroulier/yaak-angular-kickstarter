@@ -33,13 +33,14 @@
         "del": "^2.2.0",
         "gulp": "^3.9.1",
         "gulp-angular-htmlify": "^2.3.0",
-        "gulp-angular-templates": "0.0.2",
+        "gulp-angular-templatecache": "^2.0.0",
         "gulp-autoprefixer": "^3.1.0",
         "gulp-clean-css": "^2.0.4",
         "gulp-concat": "^2.6.0",
         "gulp-filter": "^4.0.0",
         "gulp-htmlmin": "^1.3.0",
         "gulp-if": "^2.0.0",
+        "gulp-image-optimization": "^0.1.3",
         "gulp-inject": "^4.0.0",
         "gulp-jshint": "^2.0.0",
         "gulp-livereload": "^3.8.1",
@@ -55,8 +56,5 @@
         "main-bower-files": "^2.11.1",
         "ng-annotate": "^1.2.1",
         "wiredep": "^4.0.0"
-    },
-    "devDependencies": {
-        "gulp-angular-templatecache": "^2.0.0"
     }
 }
