@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="app">
+<html lang="en" xmlns:ng="http://angularjs.org" id="ng-app" ng-app="app" ng-cloak>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,13 +9,26 @@
         <link rel="icon" href="favicon.ico">
         <title>Angular kickstarter (YAAK)</title>
 
+
+        <style>
+            [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+                display: none !important;
+            }
+        </style>
+
         <!-- styles -->
         <!-- build:css ./css/vendor.min.css -->
         <!-- bower:css -->
+        <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css ./css/app.min.css -->
         <!-- inject:css -->
+        <link rel="stylesheet" href=".tmp/css/styles.dev.css"/>
+        <link rel="stylesheet" href=".tmp/css/test.dev.css"/>
         <!-- endinject -->
         <!-- endbuild -->
 
@@ -26,38 +39,49 @@
         <![endif]-->
         <base href="/">
     </head>
-    <body ng-controller="appController" ng-cloak>
+    <body>
         <div class="container">
-            <div class="page-header">
-                <h1>{{title}} <small>{{subtitle}}</small></h1>
-            </div>
-            <p class="lead">Including</p>
-            <ul class="lead">
-                <li ng-repeat="component in components">{{component}}</li>
-            </ul>
-            <div class="well">If it's working, you must see a list just above, few words below and a font awesome icon right here <i class="fa fa-angellist fa-2x"></i></div>
-            <div class="well">Open your browser console to see the great log-Ex log exemples.</div>
-            <a href="/test">> Load partial.html partial</a>
             <!-- views -->
-            <div ng-view></div>
+            <div ui-view ></div>
         </div>
         <div class="footer">
             <div class="container">
-                <p class="text-muted">Made easier with <3 by <a href="https://twitter.com/ArthurMaroulier">@ArthurMaroulier</a> 2014</p>
+                <p class="text-muted">Made easier with <i class="fa fa-heart"></i> by <a href="https://twitter.com/ArthurMaroulier">@ArthurMaroulier</a> 2017</p>
             </div>
         </div>
 
         <!-- scripts -->
         <!-- build:js ./js/vendor.min.js -->
         <!-- bower:js -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+        <script src="bower_components/angular-logex/dist/log-ex-unobtrusive.js"></script>
+        <script src="bower_components/moment/min/moment-with-locales.js"></script>
+        <script src="bower_components/angular-momentjs/angular-momentjs.js"></script>
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="bower_components/lodash/dist/lodash.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/angular-messages/angular-messages.js"></script>
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:js ./js/app.min.js -->
         <!-- inject:js -->
+        <script src="js/app.module.js"></script>
+        <script src="js/home/home.module.js"></script>
+        <script src="js/dummy/dummy.module.js"></script>
+        <script src="js/app.constant.js"></script>
+        <script src="js/app.router.js"></script>
+        <script src="js/app.service.js"></script>
+        <script src="js/home/home.controller.js"></script>
+        <script src="js/dummy/dummy.controller.js"></script>
         <!-- endinject -->
         <!-- endbuild -->
         <!-- build:js ./js/templates.min.js -->
         <!-- inject:partials -->
+        <script src=".tmp/partials/templates.js"></script>
         <!-- endinject -->
         <!-- endbuild -->
     </body>

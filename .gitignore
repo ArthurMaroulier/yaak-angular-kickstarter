@@ -6,3 +6,4 @@ app/public/fonts
 *.sublime-workspace
 npm-debug.log
 .DS_Store
+.idea

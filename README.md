@@ -1,7 +1,31 @@
 YAAK - Angular kickstarter
 ==========================
 
-##Simple AngularJS skeleton
+
+## TL;DR
+
+DEV
+
+- `npm install`
+- `npm run start`
+- Code your app
+
+PROD
+
+- `npm install`
+- `npm run build`
+- Serve the content of dist/public with your server
+
+TESTS
+
+- `npm install`
+- `npm run tests-install`
+- `npm run selenium` in a terminal
+- `npm run start` in another terminal
+- `npm run tests` in another terminal
+
+
+## Simple AngularJS skeleton
 
 Yet another AngularJS kickstarter, seed, bootstrap, boilerplate, stub, skeleton or whatever you want to name it. Why?  
 Because I wanted to quickly start a new AngularJS project and didn't find what I wanted: a simple and light Angular seed with dependencies injection, development tools and nice build scripts. I didn't want to use Yeoman, ng-boilerplate or other well-known seeds that embed too many things and need some times to understand how everything is wired together (ultimate-seed MEAN stack?). 
@@ -10,22 +34,18 @@ So here it is, I made mine as I want it to be.
 A simple Angular kickstarter skeleton that rely on gulp automation to automagically inject js and css bower dependencies and your custom code files into the project main file. It comes with a build process and a light web server for development.  
 The build process generates angular templates from your html files and prepare your angular code for minification and then minify and concatenate all your code and reinject it in the project main file.
 
-I have not included tests because:
-
-> **Test is to doubt :)**  
-
-neither images folder as I didn't need tests nor images for my little project...
-
-Please if you see something wrong or bad, tell me.  
+Please if you see something wrong or bad, tell me.
 Feel free to use it limitless, contribute to enhance it, watch it, to star it and to fork it, enjoy :)
 
-####Including
+
+Images must be add in the app/public/images folder.
+
+#### Including
 
 - AngularJS
 - jQuery
-- angular-bootstrap
-- angular-fontawesome
 - bootstrap
+- fontawesome
 - moment
 - lodash
 - log-ex
@@ -33,15 +53,15 @@ Feel free to use it limitless, contribute to enhance it, watch it, to star it an
 
 See `packages.json` and `bower.json` for complete list and versions.
 
-####Requirements
+#### Requirements
 `nodejs` and `npm`
 
-######Note
+###### Note
 Note that it's possible that you face permissions issues if you run or not `npm` with `sudo` and/or if you have some dependencies installed globally.
 If it's the case, try to run with path from the `node_modules` folder like: `node_modules/bower/bin/bower install` or `node_modules/gulp/bin/gulp.js`.  
 Hint: _check the rights / owner on your .npm content, or ask google :)_
 
-####Install
+#### Install
 Simply run `npm install` then `bower install` to install dependencies. The bower post install script will inject the js and css files ref in the main html file, prepare the fonts and create the partials angular js templates.
 
 To run the local web server and watch files modifications to reload the app in the browser automagically on changes, use the command `gulp` (gulp default task) in a terminal, this would normaly open your web browser at the address `localhost:4242`.
@@ -50,7 +70,7 @@ The main gulp task creates a `.tmp` folder in `app/public` with a partials folde
 
 See `gulpfile.js` for more details on tasks.
 
-####i18n
+#### i18n
 By default, angularJS embed the `en-en` locale. So if you just need your app to be localized in english it's fine (the locale defines dates, numbers, currencies, ... formatting). If you want your app to be localized in one other locale or several others, you need to add their locale files.
 
 So, I have added the `bower-angular-i18n` package in the bower dependencies. It contains the angular `ngLocale` files for internationalization (see `/app/public/bower_components/angular-i18n/`). 
@@ -67,10 +87,10 @@ For example to make my app localized in french by default, the angular-i18n over
 
 If you want to know more about angular's i18n support go to [https://docs.angularjs.org/guide/i18n](https://docs.angularjs.org/guide/i18n).
 
-####Build
+#### Build
 To build the project run `gulp build`, it will prepare the project for production in the `dist` folder, then you can test the dist by running `gulp dist-webserver`.
 
-######Tip
+###### Tip
 Before bringing your project live, you might want to make your app faster by disabling debug data in the `$compileProvider`.
 
 [Jeff Cross & Brian Ford](https://www.youtube.com/watch?v=ojMy6m_fcxc&list=UUEGUP3TJJfMsEM_1y8iviSQ) annonce that the improvements are:
@@ -97,12 +117,12 @@ Before bringing your project live, you might want to make your app faster by dis
     </tbody>
 </table>
   
-To do this, go to the `app.js` file and in `app.config()` change `$compileProvider.debugInfoEnabled(true);` to `$compileProvider.debugInfoEnabled(false);`
+To do this, go to the `app.constant.js` and change the debug constant to `false`
 
-####Dependencies injection explanations
+#### Dependencies injection explanations
 _These explanations are based on js injection in the index.html file (it's the same thing for css files)._  
 
-`wiredep`and `gulp-inject` uses html comments blocks to inject in place the dependencies files in the index.html file.
+`wiredep` and `gulp-inject` uses html comments blocks to inject in place the dependencies files in the index.html file.
 
 Here we have three injection blocks for javascript files. One for bower dependencies, one for our app scripts and one for the html templates converted to angular templates js files:
 
@@ -154,11 +174,9 @@ During the build phase, gulp tasks will take the injections out of the blocks an
  <script src="./js/templates.min.js"></script>
 ```
 ---
-Made easier with <3 by [@ArthurMaroulier](https://twitter.com/ArthurMaroulier)
+Made easier with <3 by [@ArthurMaroulier](https://twitter.com/ArthurMaroulier) and updated by [Arnaud LAHAXE](https://twitter.com/arnaud_lahaxe)
 
-===
-
-####License
+#### License
 
 The MIT License (MIT)
 

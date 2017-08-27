@@ -1,0 +1,19 @@
+<div class="page-header">
+    <h1>Dummy data</h1>
+</div>
+
+<p>{{ test }}</p>
+
+
+<div ng-if="!error">
+    <ul>
+        <li ng-repeat="user in users"> {{ user.name }}</li>
+    </ul>
+</div>
+
+
+
+<div ng-if="error" class="alert alert-danger">Fail to fetch data</div>
+
+
+<a ui-sref="home">> Show me home page</a>
