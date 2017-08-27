@@ -16,6 +16,15 @@ PROD
 - `npm run build`
 - Serve the content of dist/public with your server
 
+TESTS
+
+- `npm install`
+- `npm run tests-install`
+- `npm run selenium` in a terminal
+- `npm run start` in another terminal
+- `npm run tests` in another terminal
+
+
 ## Simple AngularJS skeleton
 
 Yet another AngularJS kickstarter, seed, bootstrap, boilerplate, stub, skeleton or whatever you want to name it. Why?  
